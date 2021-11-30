@@ -83,7 +83,15 @@ export const allCarStats = {
  *
  * }
  */
-export const moreStats = {
-    makerHybrids: undefined,
-    avgMpgByYearAndHybrid: undefined
-};
+
+ 
+// export const moreStats = {
+//     makerHybrids: calculateHybrids(mpg_data),
+//     avgMpgByYearAndHybrid: calculateAverageMpg(mpg_data);
+// };
+
+
+
+
+
+

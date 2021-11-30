@@ -23,7 +23,6 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
     });
 }
 
-
 /**
  * @param {array} car_data
  * @param minCity
@@ -40,7 +39,6 @@ export function searchMpg(car_data, minCity, minHighway) {
     });
 }
 
-
 /**
  * Find all cars where 'id' contains the search term below.
  * Sort the results so that if the term appears earlier in the string
@@ -52,7 +50,6 @@ export function searchMpg(car_data, minCity, minHighway) {
 export function searchName(car_data, searchTerm) {
     return car_data.filter(element => element.id.includes(searchTerm)).sort((a, b) = a - b);
 }
-
 
 /**
  * Find all cars made in the years asked for.

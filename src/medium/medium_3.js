@@ -18,9 +18,18 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-
+    return car_data.filter(function(element) {
+        return (element.horsepower >= minHorsepower) && (element.torque >= minTorque);
+    }).sort(function(a, b){
+        if (a.horsepower < b.horsepower){
+            return 1;
+        } else if (a.horsepower > b.horsepower){
+            return -1;
+        } else {
+            return 0;
+        }
+    });
 }
-
 
 /**
  * @param {array} car_data
@@ -33,9 +42,18 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
  *
  */
 export function searchMpg(car_data, minCity, minHighway) {
-
+    return car_data.filter(function(element) {
+        return (element.highway_mpg >= minHighway) && (element.city_mpg >= minCity);
+    }).sort(function(a, b){
+        if (a.highway_mpg < b.highway_mpg){
+            return 1;
+        } else if (a.highway_mpg > b.highway_mpg){
+            return -1;
+        } else {
+            return 0;
+        }
+    });
 }
-
 
 /**
  * Find all cars where 'id' contains the search term below.
@@ -46,9 +64,18 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
-
+    return car_data.filter(function(element) {
+        return element.id.toLowerCase().includes(searchTerm.toLowerCase());
+    }).sort(function(a, b) {
+        if (a.id.toLowerCase().indexOf(searchTerm.toLowerCase()) < b.id.toLowerCase().indexOf(searchTerm.toLowerCase())) {
+            return -1;
+        } else if (a.id.toLowerCase().indexOf(searchTerm.toLowerCase()) > b.id.toLowerCase().indexOf(searchTerm.toLowerCase())) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
 }
-
 
 /**
  * Find all cars made in the years asked for.
@@ -59,5 +86,15 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
-
+    return car_data.filter(function(element) {
+        return (element.year >= years[0]) && (element.years <= years[1]);
+    }).sort(function(a, b){
+        if (a.year < b.year){
+            return 1;
+        } else if (a.year > b.year){
+            return -1;
+        } else {
+            return 0;
+        }
+    });
 }
